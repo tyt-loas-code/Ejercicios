@@ -1,0 +1,219 @@
+CONFIGURACIÓN DE C++ EN VS CODE (WINDOWS)
+
+1. INSTALAR VS CODE
+Descarga:
+https://code.visualstudio.com/
+
+--------------------------------------------------
+
+2. INSTALAR UN COMPILADOR C++
+Opción recomendada:
+MSYS2:
+https://www.msys2.org/
+
+Alternativa:
+MinGW-w64:
+https://www.mingw-w64.org/
+
+--------------------------------------------------
+
+3. INSTALAR G++
+
+Abrir "MSYS2 UCRT64" y ejecutar:
+
+pacman -S mingw-w64-ucrt-x86_64-gcc
+
+Esto instala:
+- g++
+- gcc
+- gdb
+- herramientas de compilación
+
+--------------------------------------------------
+
+4. AGREGAR G++ AL PATH
+
+Debes agregar la carpeta "bin" al PATH de Windows.
+
+Ejemplo con MSYS2:
+
+C:\msys64\ucrt64\bin
+
+Ejemplo con MinGW clásico:
+
+C:\MinGW\bin
+
+Cómo agregarlo:
+
+1. Buscar:
+   Variables de entorno
+
+2. Abrir:
+   Editar las variables de entorno del sistema
+
+3. Entrar a:
+   Variables de entorno
+
+4. En "Path" → Editar
+
+5. Agregar la ruta del "bin"
+
+6. Guardar todo
+
+--------------------------------------------------
+
+5. VERIFICAR INSTALACIÓN
+
+Cerrar y abrir VS Code nuevamente.
+
+Abrir terminal y ejecutar:
+
+g++ --version
+
+Si aparece la versión, ya funciona.
+
+--------------------------------------------------
+
+6. INSTALAR EXTENSIONES DE C++
+
+C/C++ Extension Pack:
+https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack
+
+C/C++ de Microsoft:
+https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools
+
+--------------------------------------------------
+
+7. COMPILAR MANUALMENTE
+
+Código:
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Hola";
+}
+
+Compilar:
+
+g++ main.cpp -o main
+
+Ejecutar en CMD:
+
+main
+
+Ejecutar en PowerShell:
+
+.\main
+
+--------------------------------------------------
+
+8. INSTALAR CODE RUNNER (OPCIONAL)
+
+https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner
+
+Permite ejecutar usando el botón ▶.
+
+--------------------------------------------------
+
+9. CONFIGURAR TAREAS AUTOMÁTICAS
+
+VS Code puede crear:
+- tasks.json
+- launch.json
+
+Pasos:
+
+1. Ctrl + Shift + P
+2. Escribir:
+
+C/C++: Edit Configurations (UI)
+
+o:
+
+Tasks: Configure Task
+
+--------------------------------------------------
+
+10. ERRORES COMUNES
+
+ERROR:
+"g++ no se reconoce"
+
+SOLUCIÓN:
+El PATH está mal configurado.
+
+--------------------
+
+ERROR:
+"Permission denied"
+
+En PowerShell ejecutar:
+
+.\programa.exe
+
+y no:
+
+programa.exe
+
+--------------------
+
+ERROR:
+"cannot open output file"
+
+El .exe estaba abierto.
+Cerrar el programa antes de recompilar.
+
+--------------------
+
+BUCLE INFINITO
+
+Normalmente ocurre por:
+- while(true)
+- punteros avanzando incorrectamente
+
+--------------------------------------------------
+
+11. COMANDOS MÁS USADOS
+
+Compilar un archivo:
+
+g++ archivo.cpp -o programa
+
+Ejecutar:
+
+.\programa
+
+--------------------
+
+Compilar múltiples archivos:
+
+g++ *.cpp -o app
+
+Ejecutar:
+
+.\app
+
+--------------------------------------------------
+
+12. CONFIGURAR DEPURACIÓN (DEBUG)
+
+Documentación:
+https://code.visualstudio.com/docs/cpp/cpp-debug
+
+Verificar instalación:
+
+gdb --version
+
+--------------------------------------------------
+
+13. COMPROBAR QUE TODO FUNCIONA
+
+Ejecutar:
+
+g++ --version
+gdb --version
+where g++
+
+Si todos funcionan correctamente, VS Code ya quedó configurado para C++.
